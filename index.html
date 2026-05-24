@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Isis Reis | Portfólio | Comunicação e estratégia institucional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:       #f0eff4;
+  --surface:  #ffffff;
+  --border:   rgba(80,70,120,0.09);
+  --border-m: rgba(80,70,120,0.18);
+  --ink:      #1a1728;
+  --muted:    #7b748f;
+  --faint:    #cdc9db;
+  --purple:   #7c3aed;
+  --purple-l: #ede9ff;
+  --purple-m: rgba(124,58,237,0.10);
+  --teal:     #0d9488;
+  --teal-l:   #ccfbf1;
+  --teal-m:   rgba(13,148,136,0.10);
+  --pink:     #db2777;
+  --pink-l:   #fce7f3;
+  --pink-m:   rgba(219,39,119,0.10);
+  --sans:  'Plus Jakarta Sans', sans-serif;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --pill:  999px;
+  --card:  26px;
+  --inner: 14px;
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:15px; line-height:1.65; font-weight:400; overflow-x:hidden; }
+body::after { content:''; position:fixed; inset:0; background-image:radial-gradient(circle,rgba(124,58,237,.05) 1px,transparent 1px); background-size:28px 28px; pointer-events:none; z-index:0; }
+
+/* PAGE SWITCHER */
+.page { display:none; }
+.page.active { display:block; }
+
+/* LANG */
+
+/* NAV */
+nav { position:fixed; top:0; left:0; right:0; z-index:200; display:flex; justify-content:space-between; align-items:center; padding:1rem 10rem 1rem 6rem; background:rgba(240,239,244,.9); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); }
+.nav-name { font-family:var(--sans); font-style:normal; font-size:1rem; font-weight:700; color:var(--purple); letter-spacing:-.02em; cursor:grab; white-space:nowrap; flex-shrink:0; }
+.nav-links { display:flex; gap:.15rem; list-style:none; align-items:center; }
+.nav-links a { font-family:var(--sans); font-size:.65rem; font-weight:600; letter-spacing:.05em; text-transform:uppercase; text-decoration:none; color:var(--muted); padding:.38rem .72rem; border-radius:var(--pill); transition:all .2s; white-space:nowrap; }
+.nav-links a:hover { color:var(--purple); background:var(--purple-l); }
+
+/* BLOBS */
+.blob { position:absolute; border-radius:50%; filter:blur(72px); pointer-events:none; z-index:0; }
+.b1 { width:460px;height:360px;background:rgba(124,58,237,.11);top:-80px;left:-100px; }
+.b2 { width:300px;height:300px;background:rgba(13,148,136,.10);bottom:60px;right:-60px; }
+.b3 { width:190px;height:190px;background:rgba(219,39,119,.09);top:58%;left:40%; }
+
+/* HERO */
+.hero { min-height:100vh; display:grid; grid-template-columns:1.2fr .8fr; padding-top:5rem; position:relative; }
+.hero-left { display:flex; flex-direction:column; justify-content:center; padding:5rem 6rem 5rem 6rem; position:relative; z-index:1; }
+.hero-eyebrow { display:inline-flex; align-items:center; gap:.6rem; font-family:var(--sans); font-size:.68rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--teal); background:var(--teal-l); border:1px solid rgba(13,148,136,.25); border-radius:var(--pill); padding:.4rem 1rem; margin-bottom:2rem; width:fit-content; }
+.hero-eyebrow::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--teal); flex-shrink:0; animation:breathe 2.5s ease-in-out infinite; }
+@keyframes breathe { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.7);opacity:.4} }
+
+.hero-title { font-family:var(--sans); font-style:normal; font-weight:600; font-size:clamp(2rem,3.8vw,3.2rem); line-height:1.12; letter-spacing:-.03em; margin-bottom:1.75rem; }
+.hero-title strong { font-family:var(--sans); font-weight:700; font-style:normal; }
+.col-p { color:var(--purple); }
+.col-t { color:var(--teal); }
+.col-pk { color:var(--pink); }
+
+.hero-desc { font-size:.95rem; color:var(--muted); max-width:44ch; line-height:1.8; margin-bottom:2.5rem; font-weight:300; }
+.ctas { display:flex; gap:.75rem; flex-wrap:wrap; }
+.btn-fill { display:inline-flex; align-items:center; gap:.5rem; background:var(--purple); color:#fff; text-decoration:none; font-family:var(--sans); font-size:.78rem; font-weight:600; letter-spacing:.04em; padding:.85rem 1.8rem; border-radius:var(--pill); border:none; cursor:pointer; transition:all .2s; box-shadow:0 4px 18px rgba(124,58,237,.28); }
+.btn-fill:hover { background:#6d28d9; transform:translateY(-1px); }
+.btn-out { display:inline-flex; align-items:center; gap:.5rem; background:var(--surface); color:var(--ink); text-decoration:none; font-family:var(--sans); font-size:.78rem; font-weight:600; letter-spacing:.04em; padding:.85rem 1.8rem; border-radius:var(--pill); border:1.5px solid var(--border-m); transition:all .2s; }
+.btn-out:hover { border-color:var(--purple); color:var(--purple); }
+
+.hero-right { display:flex; flex-direction:column; justify-content:center; padding:4rem 6rem 4rem 3rem; position:relative; z-index:1; gap:1rem; }
+.init-panel { background:var(--surface); border:1px solid var(--border); border-radius:var(--card); padding:1.35rem 1.5rem; }
+.init-panel-lbl { font-family:var(--sans); font-size:.63rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:.75rem; }
+.init-chips { display:flex; flex-wrap:wrap; gap:.5rem; }
+.init-chip { font-family:var(--sans); font-size:.78rem; font-weight:500; background:var(--bg); border:1px solid var(--border-m); border-radius:var(--pill); padding:.3rem .9rem; color:var(--ink); }
+.init-chip.other { border-style:dashed; color:var(--muted); }
+
+/* LAYOUT */
+.wrap { padding:5rem 6rem; position:relative; z-index:1; }
+.sep { height:1px; background:var(--border); position:relative; z-index:1; }
+.sec-eyebrow { display:inline-flex; align-items:center; gap:.5rem; font-family:var(--sans); font-size:.63rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:.75rem; }
+.pip { width:6px;height:6px;border-radius:50%;display:inline-block;flex-shrink:0; }
+.pip-p{background:var(--purple)}.pip-t{background:var(--teal)}.pip-pk{background:var(--pink)}
+.sec-title { font-family:var(--sans); font-size:clamp(1.8rem,3vw,2.6rem); font-weight:600; letter-spacing:-.03em; line-height:1.1; margin-bottom:.5rem; }
+.sec-title em { font-family:var(--serif); font-style:italic; font-weight:400; letter-spacing:.01em; }
+.sec-sub { color:var(--muted); font-size:.9rem; max-width:58ch; margin-bottom:3rem; font-weight:300; line-height:1.75; }
+
+/* CARD */
+.card { background:var(--surface); border:1px solid var(--border); border-radius:var(--card); padding:1.75rem; transition:box-shadow .25s,transform .25s; }
+.card:hover { box-shadow:0 8px 32px rgba(80,70,120,.09); transform:translateY(-2px); }
+
+/* BADGE */
+.badge { font-family:var(--sans); font-size:.6rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:.22rem .75rem; border-radius:var(--pill); display:inline-block; }
+.bdg-p  { background:var(--purple-l); color:var(--purple); border:1px solid rgba(124,58,237,.2); }
+.bdg-t  { background:var(--teal-l); color:var(--teal); border:1px solid rgba(13,148,136,.2); }
+.bdg-pk { background:var(--pink-l); color:var(--pink); border:1px solid rgba(219,39,119,.2); }
+
+/* CHIPS */
+.chips { display:flex; flex-wrap:wrap; gap:.4rem; }
+.chip { font-family:var(--sans); font-size:.67rem; font-weight:500; padding:.25rem .72rem; border-radius:var(--pill); border:1px solid var(--border-m); color:var(--muted); background:transparent; }
+.chip.hi  { color:var(--teal); border-color:rgba(13,148,136,.3); background:var(--teal-m); }
+.chip.hip { color:var(--purple); border-color:rgba(124,58,237,.3); background:var(--purple-m); }
+
+/* LIGHTBOX */
+.lightbox { display:none; position:fixed; inset:0; z-index:1000; background:rgba(26,23,40,.88); backdrop-filter:blur(10px); align-items:center; justify-content:center; padding:2rem; }
+.lightbox.open { display:flex; }
+.lightbox img { max-width:90vw; max-height:88vh; border-radius:var(--card); object-fit:contain; }
+.lb-close { position:fixed; top:1.5rem; right:1.5rem; width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.25); color:#fff; font-size:1.1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; font-family:var(--sans); transition:background .2s; }
+.lb-close:hover { background:rgba(255,255,255,.28); }
+
+/* IMG SLOT */
+.img-ph { width:100%; background:var(--bg); border:1.5px dashed var(--faint); border-radius:var(--inner); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.4rem; color:var(--muted); font-family:var(--sans); font-size:.68rem; letter-spacing:.02em; text-align:center; padding:.9rem; cursor:pointer; transition:border-color .2s,background .2s; position:relative; overflow:hidden; }
+.img-ph:hover { border-color:var(--purple); background:var(--purple-m); }
+.img-ph input[type="file"] { position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%; }
+.img-ph img { position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:var(--inner);cursor:pointer;}
+.img-ph svg { opacity:.3; }
+
+/* TOGGLE EXPAND */
+.toggle-btn { display:inline-flex; align-items:center; gap:.45rem; font-family:var(--sans); font-size:.68rem; font-weight:600; letter-spacing:.05em; color:var(--muted); border:1px solid var(--border-m); border-radius:var(--pill); padding:.3rem .85rem; background:transparent; cursor:pointer; transition:all .2s; margin-top:.85rem; }
+.toggle-btn:hover { color:var(--purple); border-color:rgba(124,58,237,.35); background:var(--purple-l); }
+.toggle-btn svg { transition:transform .3s; flex-shrink:0; }
+.toggle-btn.open svg { transform:rotate(180deg); }
+
+.gallery-panel { overflow:hidden; transition:max-height .4s cubic-bezier(.4,0,.2,1), opacity .3s; max-height:0; opacity:0; }
+.gallery-panel.open { max-height:800px; opacity:1; }
+
+/* GRIDS */
+.img-grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:.55rem; margin-top:.75rem; }
+.img-grid-6 { display:grid; grid-template-columns:repeat(3,1fr); gap:.55rem; margin-top:.75rem; }
+.img-grid-large { display:grid; grid-template-columns:repeat(3,1fr); gap:.75rem; margin-top:.75rem; }
+.thumb-sq { aspect-ratio:1/1; }
+.thumb-port { aspect-ratio:3/4; }
+.thumb-land { aspect-ratio:16/9; }
+
+/* REDES — layout coluna única, sem índice */
+.redes-grid { display:flex; flex-direction:column; gap:1rem; }
+.rede-card { display:flex; flex-direction:column; gap:.9rem; }
+.rede-name { font-family:var(--sans); font-size:1.3rem; font-weight:700; letter-spacing:-.025em; line-height:1.15; margin-bottom:.2rem; }
+.rede-desc { font-size:.84rem; color:var(--muted); line-height:1.7; font-weight:300; }
+.rede-img-main { display:grid; grid-template-columns:repeat(4,1fr); gap:.5rem; margin-top:.25rem; }
+.rede-img-main .img-ph { aspect-ratio:3/4; }
+
+/* Social platform links */
+.social-links { display:flex; gap:.5rem; flex-wrap:wrap; margin-top:-.2rem; }
+.social-link {
+  display:inline-flex; align-items:center; gap:.35rem;
+  font-family:var(--sans); font-size:.68rem; font-weight:600; letter-spacing:.03em;
+  color:var(--muted); text-decoration:none;
+  border:1px solid var(--border-m); border-radius:var(--pill);
+  padding:.22rem .7rem;
+  transition:all .2s;
+}
+.social-link svg { flex-shrink:0; }
+.social-link:hover { color:var(--purple); border-color:rgba(124,58,237,.35); background:var(--purple-l); }
+
+/* NEWSLETTERS — layout 3 colunas (rede-style) */
+.news-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+.news-card { display:flex; flex-direction:column; gap:.85rem; }
+.pl { font-family:var(--sans); font-size:.6rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:.2rem .75rem; border-radius:var(--pill); width:fit-content; }
+.pl-mc { background:rgba(255,210,0,.15); color:#a07a00; border:1px solid rgba(200,170,0,.3); }
+.pl-sn { background:var(--pink-l); color:var(--pink); border:1px solid rgba(219,39,119,.25); }
+.news-title { font-family:var(--sans); font-size:1rem; font-weight:700; letter-spacing:-.02em; line-height:1.2; }
+.news-desc { font-size:.83rem; color:var(--muted); line-height:1.7; font-weight:300; }
+.news-metrics { display:flex; gap:1.5rem; padding-top:.7rem; border-top:1px solid var(--border); }
+.metric-val { font-family:var(--sans); font-size:1.1rem; font-weight:700; color:var(--teal); letter-spacing:-.02em; }
+.metric-key { font-size:.64rem; color:var(--muted); margin-top:1px; font-weight:500; font-family:var(--sans); }
+.news-thumbs { display:grid; grid-template-columns:repeat(3,1fr); gap:.5rem; }
+.news-thumbs .img-ph { aspect-ratio:1/1; }
+
+/* EVENTOS — 2 linhas: 3 + 2 */
+.eventos-row1 { display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; }
+.eventos-row2 { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+.ev-card { display:flex; flex-direction:column; gap:.75rem; }
+.ev-idx { font-family:var(--serif); font-style:italic; font-size:1rem; color:var(--purple); background:var(--purple-l); border:1px solid rgba(124,58,237,.2); border-radius:var(--pill); padding:.22rem .75rem; text-align:center; white-space:nowrap; width:fit-content; }
+.ev-name { font-family:var(--sans); font-size:1rem; font-weight:700; letter-spacing:-.02em; line-height:1.2; margin-bottom:.15rem; }
+.ev-scope { font-family:var(--sans); font-size:.67rem; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; font-weight:600; margin-bottom:.65rem; }
+.ev-desc { font-size:.83rem; color:var(--muted); line-height:1.7; font-weight:300; }
+.ev-thumbs { display:grid; grid-template-columns:repeat(3,1fr); gap:.5rem; margin-top:.75rem; }
+.ev-thumbs .img-ph { aspect-ratio:1/1; }
+
+/* CV PREVIEW */
+.cv-wrap { display:grid; grid-template-columns:1fr 1.2fr; gap:1rem; }
+.cv-left { display:flex; flex-direction:column; gap:1rem; }
+.cv-right { display:flex; flex-direction:column; gap:1rem; }
+.cv-block { background:var(--surface); border:1px solid var(--border); border-radius:var(--card); padding:1.5rem; }
+.cv-block-lbl { font-family:var(--sans); font-size:.62rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:1rem; }
+.cv-item { padding-bottom:.85rem; margin-bottom:.85rem; border-bottom:1px solid var(--border); }
+.cv-item:last-child { padding-bottom:0; margin-bottom:0; border-bottom:none; }
+.cv-item-title { font-family:var(--sans); font-size:.9rem; font-weight:600; color:var(--ink); margin-bottom:.15rem; }
+.cv-item-sub { font-family:var(--sans); font-size:.8rem; color:var(--purple); font-weight:500; margin-bottom:.15rem; }
+.cv-item-date { font-family:var(--sans); font-size:.72rem; color:var(--muted); }
+.cv-item-desc { font-family:var(--sans); font-size:.8rem; color:var(--muted); line-height:1.6; font-weight:300; margin-top:.3rem; }
+.cv-skill-list { display:flex; flex-wrap:wrap; gap:.4rem; }
+.cv-skill { font-family:var(--sans); font-size:.72rem; font-weight:500; padding:.22rem .7rem; border-radius:var(--pill); border:1px solid var(--border-m); color:var(--ink); }
+.cv-cta { display:inline-flex; align-items:center; gap:.5rem; font-family:var(--sans); font-size:.78rem; font-weight:600; color:var(--purple); text-decoration:none; border:1.5px solid rgba(124,58,237,.35); border-radius:var(--pill); padding:.7rem 1.4rem; transition:all .2s; background:var(--purple-l); cursor:pointer; }
+.cv-cta:hover { background:var(--purple); color:#fff; }
+
+/* OTHER */
+.other-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+.other-card { display:flex; flex-direction:column; gap:.85rem; }
+.other-add { display:flex; align-items:center; justify-content:center; flex-direction:column; gap:.5rem; border:1.5px dashed var(--faint); background:transparent; border-radius:var(--card); min-height:200px; cursor:pointer; padding:2rem; transition:all .2s; }
+.other-add:hover { border-color:var(--purple); background:var(--purple-m); }
+.other-add p { font-family:var(--sans); font-size:.8rem; color:var(--muted); text-align:center; line-height:1.7; }
+
+/* CONTACT */
+.contact-outer { display:grid; grid-template-columns:1fr 1fr; gap:1rem; padding:5rem 6rem; position:relative; z-index:1; }
+.contact-card { display:flex; flex-direction:column; gap:1.5rem; }
+.contact-title { font-family:var(--sans); font-size:clamp(1.8rem,3vw,2.5rem); font-weight:700; letter-spacing:-.03em; line-height:1.1; }
+.contact-title em { font-family:var(--serif); font-style:italic; font-weight:400; }
+.contact-desc { font-size:.9rem; color:var(--muted); line-height:1.8; font-weight:300; max-width:38ch; }
+.contact-links { display:flex; flex-direction:column; gap:.55rem; }
+.clink { display:flex; align-items:center; gap:.85rem; text-decoration:none; color:var(--ink); padding:.85rem 1.2rem; background:var(--surface); border:1px solid var(--border); border-radius:var(--pill); transition:all .2s; font-size:.88rem; }
+.clink:hover { border-color:var(--purple); color:var(--purple); background:var(--purple-l); }
+.clink-ico { width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.7rem; font-weight:800; font-family:var(--sans); flex-shrink:0; }
+.ico-e{background:var(--purple-l);color:var(--purple)} .ico-l{background:var(--teal-l);color:var(--teal)} .ico-i{background:var(--pink-l);color:var(--pink)}
+.clink-lbl { font-family:var(--sans); font-size:.6rem; color:var(--muted); display:block; letter-spacing:.06em; text-transform:uppercase; font-weight:700; margin-bottom:1px; }
+.clink-val { font-size:.86rem; }
+.avail-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--card); padding:1.75rem; }
+.avail-title { font-family:var(--sans); font-size:.62rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:1rem; }
+.avail-items { display:flex; flex-direction:column; gap:.85rem; }
+.avail-item { display:flex; align-items:flex-start; gap:.85rem; font-size:.86rem; color:var(--ink); line-height:1.55; }
+.avail-dot { width:9px;height:9px;border-radius:50%;margin-top:.3rem;flex-shrink:0; }
+.status-card { background:linear-gradient(135deg,var(--purple-l),var(--teal-l)); border:1px solid rgba(124,58,237,.18); border-radius:var(--card); padding:1.75rem; }
+.status-lbl { font-family:var(--sans); font-size:.62rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--purple); margin-bottom:.7rem; }
+.status-txt { font-size:.88rem; line-height:1.7; font-weight:300; }
+.footer-bar { padding:1.5rem 6rem 2.5rem; font-family:var(--sans); font-size:.7rem; color:var(--muted); letter-spacing:.03em; line-height:1.7; border-top:1px solid var(--border); position:relative; z-index:1; }
+
+/* CV PAGE */
+#page-cv { min-height:100vh; padding-top:5rem; position:relative; z-index:1; }
+.cv-page-inner { max-width:760px; margin:0 auto; padding:4rem 2rem 6rem; }
+.cv-page-back { display:inline-flex; align-items:center; gap:.5rem; font-family:var(--sans); font-size:.75rem; font-weight:600; color:var(--muted); border:1px solid var(--border-m); border-radius:var(--pill); padding:.38rem .9rem; background:var(--surface); cursor:pointer; transition:all .2s; margin-bottom:2.5rem; text-decoration:none; }
+.cv-page-back:hover { color:var(--purple); border-color:rgba(124,58,237,.35); background:var(--purple-l); }
+.cv-page-title { font-family:var(--serif); font-style:italic; font-size:2.8rem; color:var(--ink); margin-bottom:.35rem; }
+.cv-page-sub { font-family:var(--sans); font-size:.9rem; color:var(--muted); font-weight:300; margin-bottom:3rem; }
+.cv-section { margin-bottom:2.5rem; }
+.cv-section-lbl { font-family:var(--sans); font-size:.65rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--purple); margin-bottom:1rem; padding-bottom:.5rem; border-bottom:1px solid var(--border); }
+.cv-row { display:grid; grid-template-columns:1fr 2fr; gap:1.5rem; padding:.85rem 0; border-bottom:1px solid var(--border); }
+.cv-row:last-child { border-bottom:none; }
+.cv-row-date { font-family:var(--sans); font-size:.78rem; color:var(--muted); font-weight:400; padding-top:.1rem; }
+.cv-row-body {}
+.cv-row-title { font-family:var(--sans); font-size:.92rem; font-weight:600; color:var(--ink); margin-bottom:.15rem; }
+.cv-row-org { font-family:var(--sans); font-size:.82rem; color:var(--purple); font-weight:500; margin-bottom:.25rem; }
+.cv-row-desc { font-family:var(--sans); font-size:.82rem; color:var(--muted); line-height:1.65; font-weight:300; }
+.cv-skills-wrap { display:flex; flex-wrap:wrap; gap:.5rem; }
+.cv-skill-tag { font-family:var(--sans); font-size:.75rem; font-weight:500; padding:.28rem .8rem; border-radius:var(--pill); border:1px solid var(--border-m); color:var(--ink); }
+.cv-note { font-family:var(--sans); font-size:.78rem; color:var(--muted); font-style:italic; margin-top:2rem; line-height:1.65; }
+
+/* PROJECT LOGO CIRCLE */
+.proj-logo {
+  width:50px; height:50px; border-radius:50%;
+  background:var(--bg); border:1.5px dashed var(--faint);
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0; cursor:pointer; overflow:hidden;
+  transition:border-color .2s;
+  position:relative;
+}
+.proj-logo:hover { border-color:var(--purple); }
+.proj-logo a { display:block;width:100%;height:100%;border-radius:50%; }
+.proj-logo img { display:block;width:100%;height:100%;object-fit:cover;border-radius:50%; }
+
+/* REDE HEADER ROW */
+.rede-header { display:flex; align-items:center; gap:.85rem; margin-bottom:.15rem; }
+
+/* METRICS ROW */
+.metrics-row { display:flex; gap:1.25rem; padding:.7rem 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); margin-top:.1rem; }
+.metric-item {}
+.metric-num { font-family:var(--sans); font-size:1.1rem; font-weight:700; color:var(--purple); letter-spacing:-.02em; }
+.metric-lbl { font-size:.65rem; color:var(--muted); font-weight:500; letter-spacing:.02em; margin-top:1px; }
+
+/* ANIM */
+@keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+.fu{animation:fadeUp .55s ease both} .d1{animation-delay:.12s} .d2{animation-delay:.24s} .d3{animation-delay:.36s}
+
+/* I18N */
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{padding:1rem 1.25rem} .nav-links{display:none}
+  .hero{grid-template-columns:1fr}
+  .hero-left{padding:6rem 1.25rem 2rem}
+  .hero-right{padding:1.5rem 1.25rem 3rem}
+  .wrap{padding:3.5rem 1.25rem}
+  .redes-grid{display:flex;flex-direction:column} .rede-card{grid-template-columns:auto 1fr}
+  .news-grid{grid-template-columns:1fr}
+  .eventos-stack{grid-template-columns:1fr}
+  .cv-wrap{grid-template-columns:1fr}
+  .contact-outer{grid-template-columns:1fr;padding:3rem 1.25rem}
+  .footer-bar{padding:1.5rem 1.25rem 2rem}
+  .cv-row{grid-template-columns:1fr}
+  .cv-page-inner{padding:2rem 1.25rem 4rem}
+}
+</style>
+</head>
+<body>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <img id="lb-img" src="" alt="">
+</div>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-name" onclick="showPage('main')">Isis Reis</span>
+  <ul class="nav-links">
+    <li><a href="#redes">Redes</a></li>
+    <li><a href="#newsletters">Newsletters</a></li>
+    <li><a href="#eventos">Eventos</a></li>
+    <li><a href="#cv">Currículo</a></li>
+    <li><a href="#outras">Iniciativas</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════════════════════════
+     PAGE: MAIN PORTFOLIO
+══════════════════════════════════ -->
+<div id="page-main" class="page active">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="hero-left">
+    <span class="hero-eyebrow fu">
+      Comunicação estratégica · Cultura Digital · Impacto social
+      
+      
+    </span>
+
+    <h1 class="hero-title fu d1">
+      
+        Comunicação focada em <span class="col-pk">causas</span>,<br>
+        <span class="col-p">direitos digitais</span> e <span class="col-t">conhecimento livre</span>
+    </h1>
+
+    <p class="hero-desc fu d2">
+      Com foco especial em organizações que trabalham na interseção entre tecnologias e direitos.
+      
+      
+    </p>
+
+    <div class="ctas fu d3">
+      <a href="#redes" class="btn-fill">Ver trabalhos →</a>
+      <a href="#contato" class="btn-out">Contato</a>
+    </div>
+  </div>
+
+  <div class="hero-right fu d2">
+    <div class="init-panel">
+      <p class="init-panel-lbl">Iniciativas</p>
+      <div class="init-chips">
+        <span class="init-chip">Open Knowledge Brasil</span>
+        <span class="init-chip">Escola de Dados</span>
+        <span class="init-chip">Wiki Editoras Lx</span>
+        <span class="init-chip">Festival Tecnologia Popular Setúbal</span>
+        <span class="init-chip other">+ outras</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ─── REDES SOCIAIS ─── -->
+<section id="redes" class="wrap">
+  <p class="sec-eyebrow"><span class="pip pip-p"></span>01</p>
+  <h2 class="sec-title">Redes <em>sociais</em></h2>
+  <p class="sec-sub">
+    Criação de conteúdo, design, agendamento e gestão estratégica — do planejamento editorial ao resultado.
+    
+    
+  </p>
+
+  <div class="redes-grid">
+
+    <!-- OKBR -->
+    <div class="card rede-card">
+      <div class="rede-header">
+        <div class="proj-logo">
+       <a href="https://ok.org.br" rel="noopener noreferrer" target="_blank"><img src="icone-okbr.png"></a>
+      </div>
+        <h3 class="rede-name">Open Knowledge Brasil</h3>
+      </div>
+      <p class="rede-desc">
+        Gestão estratégica e criação de conteúdo para a principal organização de dados abertos do país. Planejamento editorial, execução e monitoramento realizados em parceria, com pautas dos programas da organização.
+        
+        
+      </p>
+      <div class="social-links">
+        <a class="social-link" href="https://instagram.com/openknowledgebr" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+        <a class="social-link" href="https://linkedin.com/company/open-knowledge-brasil" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+        <a class="social-link" href="https://bsky.app/profile/okbr.bsky.social" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.204-.659-.299-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/></svg>Bluesky</a>
+        <a class="social-link" href="https://mastodon.social/@okbr" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M21.327 8.566c0-4.339-2.843-5.61-2.843-5.61-1.433-.658-3.894-.935-6.451-.956h-.063c-2.557.021-5.016.298-6.45.956 0 0-2.843 1.272-2.843 5.61 0 .993-.019 2.181.012 3.441.103 4.243.778 8.425 4.701 9.463 1.809.479 3.362.579 4.612.51 2.268-.126 3.541-.809 3.541-.809l-.075-1.646s-1.621.511-3.441.449c-1.804-.062-3.707-.194-3.999-2.409a4.523 4.523 0 0 1-.04-.621s1.77.433 4.014.536c1.372.063 2.658-.08 3.965-.236 2.506-.299 4.688-1.843 4.962-3.254.434-2.223.398-5.424.398-5.424zm-3.353 5.59h-2.081V9.057c0-1.075-.452-1.62-1.357-1.62-1 0-1.501.647-1.501 1.927v2.791h-2.069V9.364c0-1.28-.501-1.927-1.502-1.927-.905 0-1.357.546-1.357 1.62v5.099H6.026V8.903c0-1.074.273-1.927.823-2.558.566-.631 1.307-.955 2.228-.955 1.065 0 1.872.409 2.405 1.228l.518.869.519-.869c.533-.819 1.34-1.228 2.4-1.228.92 0 1.662.324 2.228.955.549.631.822 1.484.822 2.558v5.253z"/></svg>Mastodon</a>
+        <a class="social-link" href="https://youtube.com/@openknowledgebrasil" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>YouTube</a>
+      </div>
+      <div class="metrics-row">
+        <div class="metric-item">
+          <div class="metric-num">Instagram</div>
+          <div class="metric-lbl">Rede mais seguida</div>
+        </div>
+      <div class="metric-item">
+          <div class="metric-num">10,3 mil</div>
+          <div class="metric-lbl">Seguidores</div>
+        </div>
+      <div class="metric-item">
+          <div class="metric-num">1.404</div>
+          <div class="metric-lbl">Alcance médio</div>
+        </div>
+      <div class="metric-item">
+          <div class="metric-num">8,70%</div>
+          <div class="metric-lbl">Taxa de engajamento</div>
+        </div>
+    </div>
+      <div class="rede-img-main">
+        <div class="img-ph"><a href="https://www.instagram.com/p/DWHcqw6E0cc/" rel="noopener noreferrer" target="_blank"><img src="card01-okbr.png"></a></div>
+        <div class="img-ph"><a href="https://www.instagram.com/p/DXKBUVrEx_-/" rel="noopener noreferrer" target="_blank"><img src="card02-okbr.png"></a></div>
+        <div class="img-ph"><a href="https://www.instagram.com/p/DUbaGKek4Bm/" rel="noopener noreferrer" target="_blank"><img src="card03-okbr.png"></a></div>
+        <div class="img-ph"><a href="https://www.instagram.com/p/DXpYpTSFNJi/" rel="noopener noreferrer" target="_blank"><img src="card04-okbr.png"></a></div>
+      </div>
+    </div>
+
+    <!-- Escola de Dados -->
+    <div class="card rede-card">
+      <div class="rede-header">
+        <div class="proj-logo">
+        <a href="https://escoladedados.org" rel="noopener noreferrer" target="_blank"><img src="icone-ed.png"></a>
+      </div>
+        <h3 class="rede-name">Escola de Dados</h3>
+      </div>
+      <p class="rede-desc">
+        Comunicação do programa de alfabetização em dados, com conteúdo sobre cursos, tutoriais, eventos e tendências em dados abertos e jornalismo de dados.
+        
+        
+      </p>
+      <div class="social-links">
+        <a class="social-link" href="https://instagram.com/escoladedados" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+        <a class="social-link" href="https://linkedin.com/company/escola-de-dados" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+        <a class="social-link" href="https://youtube.com/@escoladedados" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>YouTube</a>
+      </div>
+      <div class="metrics-row">
+        <div class="metric-item">
+          <div class="metric-num">Linkedin</div>
+          <div class="metric-lbl">Rede mais seguida</div>
+        </div>
+      <div class="metric-item">
+          <div class="metric-num">14,8 mil</div>
+          <div class="metric-lbl">Seguidores</div>
+        </div>
+      <div class="metric-item">
+          <div class="metric-num">320</div>
+          <div class="metric-lbl">Alcance médio</div>
+        </div>
+      <div class="metric-item">
+          <div class="metric-num">2,76%</div>
+          <div class="metric-lbl">Taxa de engajamento</div>
+        </div>
+    </div>
+      <div class="rede-img-main">
+        <div class="img-ph"><a href="https://www.instagram.com/p/DXpe4U_E7Zl/" rel="noopener noreferrer" target="_blank"><img src="card01-ed.png"></a></div>
+        <div class="img-ph"><a href="https://www.instagram.com/p/DUTvNlAE4ky/" rel="noopener noreferrer" target="_blank"><img src="card02-ed.png"></a></div>
+        <div class="img-ph"><a href="https://www.instagram.com/p/DUlzn7Tk2ut/" rel="noopener noreferrer" target="_blank"><img src="card03-ed.png"></a></div>
+        <div class="img-ph"><a href="https://www.instagram.com/p/DX9pL6YE4aC/" rel="noopener noreferrer" target="_blank"><img src="card04-ed.png"></a></div>
+      </div>
+    </div>
+
+    <!-- Wiki Editoras Lx -->
+    <div class="card rede-card">
+      <div class="rede-header">
+        <div class="proj-logo">
+        <a href="https://wikieditoraslx.org" rel="noopener noreferrer" target="_blank"><img src="icone-welx.png"></a>
+      </div>
+        <h3 class="rede-name">Wiki Editoras Lx</h3>
+      </div>
+      <p class="rede-desc">
+        Comunicação do grupo de editoras da Wikipédia em Lisboa. Conteúdo sobre edição colaborativa, representatividade no conhecimento livre e atividades do grupo na comunidade portuguesa.
+        
+        
+      </p>
+      <div class="social-links">
+        <a class="social-link" href="https://instagram.com/wikieditoraslx" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+        <a class="social-link" href="https://facebook.com/wikieditoraslx" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook</a>
+        <a class="social-link" href="https://linkedin.com/company/wiki-editoras-lx" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+      <div class="metrics-row">
+        <div class="metric-item">
+          <div class="metric-num">Instagram</div>
+          <div class="metric-lbl">Rede mais seguida</div>
+        </div>
+      <div class="metric-item">
+          <div class="metric-num">2,4 mil</div>
+          <div class="metric-lbl">Seguidores</div>
+        </div>
+      <div class="metric-item">
+          <div class="metric-num">558</div>
+          <div class="metric-lbl">Alcance médio</div>
+        </div>
+      <div class="metric-item">
+          <div class="metric-num">3,53%</div>
+          <div class="metric-lbl">Taxa de engajamento</div>
+        </div>
+    </div>
+      <div class="rede-img-main">
+         <div class="img-ph"><a href="https://www.instagram.com/p/DRziXysiKSI/" rel="noopener noreferrer" target="_blank"><img src="card01-welx.gif"></a></div>
+        <div class="img-ph"><a href="https://www.instagram.com/p/DUYtIodCCIz/" rel="noopener noreferrer" target="_blank"><img src="card02-welx.png"></a></div>
+        <div class="img-ph"><a href="https://www.instagram.com/p/DWBmRmjiHzM/" rel="noopener noreferrer" target="_blank"><img src="card03-welx.png"></a></div>
+        <div class="img-ph"><a href="https://www.instagram.com/p/DWjfVMziHbg/" rel="noopener noreferrer" target="_blank"><img src="card04-welx.png"></a></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ─── NEWSLETTERS ─── -->
+<section id="newsletters" class="wrap">
+  <p class="sec-eyebrow"><span class="pip pip-t"></span>02</p>
+  <h2 class="sec-title">Newsletters</h2>
+  <p class="sec-sub">
+    Produção e envio via Sendy e Mailchimp — curadoria, redação, design e acompanhamento de métricas.
+    
+    
+  </p>
+
+  <div class="news-grid">
+
+    <div class="card news-card">
+      
+      <h3 class="news-title">Newsletter Open Knowledge Brasil</h3>
+      <p class="news-desc">Boletim periódico da Open Knowledge Brasil com atualizações sobre dados abertos, transparência, projetos de inovação cívica e agenda de eventos.</p>
+      <div class="news-metrics">
+        <div><div class="metric-val">27.453</div><div class="metric-key">Assinantes</div></div>
+        <div><div class="metric-val">24,6%</div><div class="metric-key">Taxa de abertura</div></div>
+      </div>
+      <div class="news-thumbs">
+        <div class="img-ph"><a href="https://mail.ok.org.br/w/na5mY0g763eeSxb9Tw09892taA" rel="noopener noreferrer" target="_blank"><img src="news-okbr01.png"></a></div>
+        <div class="img-ph"><a href="https://mail.ok.org.br/w/5hz1x3asJPnps4DgB5892EJw" rel="noopener noreferrer" target="_blank"><img src="news-okbr02.png"></a></div>
+        <div class="img-ph"><a href="https://mail.ok.org.br/w/8Jh5L21mEa5WblnUeyw0ow" rel="noopener noreferrer" target="_blank"><img src="news-okbr03.png"></a></div>
+      </div>
+    </div>
+
+    <div class="card news-card">
+      
+      <h3 class="news-title">Newsletter Escola de Dados</h3>
+      <p class="news-desc">Comunicação dos cursos, materiais pedagógicos e eventos da Escola de Dados para jornalistas, pesquisadores e profissionais de dados de todo o Brasil.</p>
+      <div class="news-metrics">
+        <div><div class="metric-val">15.440</div><div class="metric-key">Assinantes</div></div>
+        <div><div class="metric-val">13,93%</div><div class="metric-key">Taxa de abertura</div></div>
+      </div>
+      <div class="news-thumbs">
+        <div class="img-ph"><a href="https://mail.ok.org.br/w/fUb0Q7Eo6vvWHFGSuombtA" rel="noopener noreferrer" target="_blank"><img src="news-ed01.png"></a></div>
+        <div class="img-ph"><a href="https://mail.ok.org.br/w/8y4ZHr8NFJ2sc892892z2t9FHg" rel="noopener noreferrer" target="_blank"><img src="news-ed02.png"></a></div>
+        <div class="img-ph"><a href="https://mail.ok.org.br/w/0U6WxCYo7mwOwWM0rDs763iQ" rel="noopener noreferrer" target="_blank"><img src="news-ed03.png"></a></div>
+      </div>
+    </div>
+
+    <div class="card news-card">
+      
+      <h3 class="news-title">Newsletter Wiki Editoras Lx</h3>
+      <p class="news-desc">Boletim do grupo de editoras da Wikipédia em Lisboa com agenda de editatonas, novidades da comunidade e chamadas de participação.</p>
+      <div class="news-metrics">
+        <div><div class="metric-val">220</div><div class="metric-key">Assinantes</div></div>
+        <div><div class="metric-val">12,33%</div><div class="metric-key">Taxa de abertura</div></div>
+      </div>
+      <div class="news-thumbs">
+        <div class="img-ph"><a href="https://mailchi.mp/3589dacf3e1a/newsletter-fevereiro-19882446" rel="noopener noreferrer" target="_blank"><img src="news-welx01.png"></a></div>
+        <div class="img-ph"><a href="https://mailchi.mp/1bd790d17842/newsletter-fevereiro-19881856" rel="noopener noreferrer" target="_blank"><img src="news-welx02.png"></a></div>
+        <div class="img-ph"><a href="https://mailchi.mp/675cc929e685/newsletter-fevereiro-19881604" rel="noopener noreferrer" target="_blank"><img src="news-welx03.png"></a></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ─── EVENTOS ─── -->
+<section id="eventos" class="wrap">
+  <p class="sec-eyebrow"><span class="pip pip-pk"></span>03</p>
+  <h2 class="sec-title"><em>Eventos</em></h2>
+  <p class="sec-sub">
+    Comunicação, peças gráficas, divulgação em redes sociais e apoio à produção de eventos de dados abertos, jornalismo e tecnologia.
+    
+    
+  </p>
+
+  <div class="eventos-row1">
+
+    <div class="card ev-card">
+      <div class="proj-logo" onclick="triggerUpload(this)">
+        <img src="icone-codabr.png">
+      </div>
+      <div>
+        <h3 class="ev-name">Coda.Br</h3>
+        <p class="ev-scope">Conferência nacional · São Paulo, SP</p>
+        <p class="ev-desc">A maior conferência de jornalismo de dados da América Latina. Comunicação do evento, adaptação de identidade visual, apoio à captação, ao planejamento, criação de peças gráficas, divulgação nas redes da Escola de Dados e OKBR, interface com fornecedores de brindes e equipe de transmissão e registro, e apoio à produção durante o evento.</p>
+        <div class="chips" style="margin-top:.65rem"><span class="chip hip">Peças gráficas</span><span class="chip">Divulgação</span><span class="chip">Produção</span></div>
+      </div>
+    </div>
+
+    <div class="card ev-card">
+      <div class="proj-logo" onclick="triggerUpload(this)">
+        <img src="icone-codaam.png">
+      </div>
+      <div>
+        <h3 class="ev-name">Coda Amazônia</h3>
+        <p class="ev-scope">Conferência regional · Belém, PA</p>
+        <p class="ev-desc">Capítulo regional do Coda.Br sediado em Belém, com foco em dados e jornalismo na Amazônia. Criação da primeira identidade visual, apoio à captação e ao planejamento, peças para divulgação, gestão das redes durante o evento, interface com fornecedores de serviços locais, além de apoio à produção.</p>
+        <div class="chips" style="margin-top:.65rem"><span class="chip hip">Identidade visual</span><span class="chip">Redes ao vivo</span><span class="chip">Produção</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="eventos-row2" style="margin-top:1rem">
+
+    <div class="card ev-card">
+      <div class="proj-logo" onclick="triggerUpload(this)">
+        <img src="icone-americaaberta.png">
+      </div>
+      <div>
+        <h3 class="ev-name">América Aberta</h3>
+        <p class="ev-scope">Conferência internacional · Brasília, DF</p>
+        <p class="ev-desc">Conferência sobre governo aberto, transparência e participação cívica na América Latina. Co-liderança da comunicação do evento, criação de site do evento, de peças gráficas, criação e manutenção de mailing e divulgação nas redes sociais.</p>
+        <div class="chips" style="margin-top:.65rem"><span class="chip hip">Peças gráficas</span><span class="chip">Divulgação</span><span class="chip">Internacional</span></div>
+      </div>
+    </div>
+
+    <div class="card ev-card">
+      <div class="proj-logo" onclick="triggerUpload(this)">
+        <img src="icone-ccd.png">
+      </div>
+      <div>
+        <h3 class="ev-name">Cerveja com Dados</h3>
+        <p class="ev-scope">Encontro informal · múltiplas cidades</p>
+        <p class="ev-desc">Encontros informais para fortalecer a comunidade de dados em todas as regiões do Brasil. Proposta de guia de como fazer, apoio a organizadores locais e divulgação nas redes.</p>
+        <div class="chips" style="margin-top:.65rem"><span class="chip hip">Convites</span><span class="chip">Divulgação</span><span class="chip">Nacional</span></div>
+      </div>
+    </div>
+
+    <div class="card ev-card">
+      <div class="proj-logo" onclick="triggerUpload(this)">
+        <img src="icone-ftps.png">
+      </div>
+      <div>
+        <h3 class="ev-name">2º Festival de Tecnologia Popular de Setúbal</h3>
+        <p class="ev-scope">Festival · Setúbal, Portugal</p>
+        <p class="ev-desc">Festival de tecnologia e inovação popular sediado em Setúbal. Apoio à comunicação da 2ª edição via Wiki Editoras Lx — criação de identidade visual, de peças gráficas e divulgação nas redes sociais.</p>
+        <div class="chips" style="margin-top:.65rem"><span class="chip hip">Peças gráficas</span><span class="chip">Divulgação</span><span class="chip">Portugal</span></div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<div class="sep"></div>
+
+<!-- ─── CV PREVIEW ─── -->
+<section id="cv" class="wrap">
+  <p class="sec-eyebrow"><span class="pip pip-p"></span>04</p>
+  <h2 class="sec-title"><em>Currículo</em></h2>
+  <p class="sec-sub">
+    Uma prévia com as experiências mais recentes. Para o currículo completo, acesse a página reservada.
+    
+    
+  </p>
+
+  <div class="cv-wrap">
+    <div class="cv-left">
+      <div class="cv-block">
+        <p class="cv-block-lbl">Experiência recente</p>
+        <div class="cv-item">
+          <p class="cv-item-title">Coordenadora de comunicação</p>
+          <p class="cv-item-sub">Open Knowledge Brasil</p>
+          <p class="cv-item-date">nov. 2023 — presente</p>
+          <p class="cv-item-desc">Lidera estratégias de comunicação institucional e advocacy digital para avançar as agendas de transparência, dados abertos e direitos digitais no Brasil e na América Latina.</p>
+        </div>
+        <div class="cv-item">
+          <p class="cv-item-title">Associada de comunicação</p>
+          <p class="cv-item-sub">Wiki Editoras Lx</p>
+          <p class="cv-item-date">mar. 2025 — presente</p>
+          <p class="cv-item-desc">Lidera estratégia de conteúdo para o grupo de editoras da Wikipédia em Lisboa, gerenciando redes sociais e newsletter.</p>
+        </div>
+        <div class="cv-item">
+          <p class="cv-item-title">Gerente de comunidade</p>
+          <p class="cv-item-sub">Escola de Dados · Open Knowledge Brasil</p>
+          <p class="cv-item-date">jul. 2020 – out. 2023</p>
+          <p class="cv-item-desc">Gerenciou comunidades online e presenciais de jornalistas e especialistas em dados, fomentando engajamento em torno de jornalismo de dados e letramento digital.</p>
+        </div>
+      </div>
+      <div class="cv-block">
+        <p class="cv-block-lbl">Formação</p>
+        <div class="cv-item">
+          <p class="cv-item-title">Bacharelado em Publicidade e Propaganda</p>
+          <p class="cv-item-sub">Universidade Federal do Rio de Janeiro</p>
+        </div>
+        <div class="cv-item">
+          <p class="cv-item-title">Inteligência Artificial para organizações</p>
+          <p class="cv-item-sub">Anacronia</p>
+        </div>
+        <div class="cv-item">
+          <p class="cv-item-title">IA para Comunicação de Impacto</p>
+          <p class="cv-item-sub">ITS Rio</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-right">
+      <div class="cv-block">
+        <p class="cv-block-lbl">Competências</p>
+        <div class="cv-skill-list">
+          <span class="cv-skill">Estratégia de comunicação</span>
+          <span class="cv-skill">Gestão de redes sociais</span>
+          <span class="cv-skill">Criação de conteúdo</span>
+          <span class="cv-skill">Design gráfico</span>
+          <span class="cv-skill">Mailchimp · Sendy</span>
+          <span class="cv-skill">Produção de eventos</span>
+          <span class="cv-skill">Canva · Figma</span>
+          <span class="cv-skill">Dados abertos</span>
+          <span class="cv-skill">Conhecimento livre</span>
+        </div>
+      </div>
+      <div class="cv-block">
+        <p class="cv-block-lbl">Idiomas</p>
+        <div style="display:flex;flex-wrap:wrap;gap:.4rem">
+          <span class="cv-skill" style="color:var(--purple);background:var(--purple-l);border-color:rgba(124,58,237,.2)">Português — nativo</span>
+          <span class="cv-skill">Inglês — C1</span>
+          <span class="cv-skill">Francês — B1.3</span>
+          <span class="cv-skill">Espanhol — básico</span>
+        </div>
+      </div>
+      <div class="cv-block" style="display:flex;flex-direction:column;gap:1rem">
+        <p class="cv-block-lbl">Currículo completo</p>
+        <p style="font-family:var(--sans);font-size:.84rem;color:var(--muted);line-height:1.7;font-weight:300">O currículo detalhado — com formação, publicações, idiomas e referências — está numa página separada, com acesso por link direto.</p>
+        <button class="cv-cta" onclick="showPage('cv')">
+          Acessar currículo completo →
+          
+          
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ─── OUTRAS INICIATIVAS ─── -->
+<section id="outras" class="wrap">
+  <p class="sec-eyebrow"><span class="pip pip-t"></span>05</p>
+  <h2 class="sec-title">Outras <em>iniciativas</em></h2>
+  <p class="sec-sub">
+    Sites, apresentações, campanhas e outros trabalhos de comunicação.
+    
+    
+  </p>
+
+  <div class="other-grid">
+
+    <div class="card other-card">
+      <h3 style="font-family:var(--sans);font-size:1.05rem;font-weight:700;letter-spacing:-.02em">Site - Cecília Olliveira</h3>
+      <p style="font-size:.83rem;color:var(--muted);line-height:1.7;font-weight:300;flex:1">Desenvolvimento e manutenção do site profissional da jornalista a partir da identidade visual já estabelecida, com implementação em WordPress e adaptação da arquitetura do conteúdo para publicação editorial. O projeto incluiu oficina de capacitação para integrantes da equipe, voltada à autonomia na gestão do site, além de suporte técnico e ajustes periódicos para atualização.</p>
+      <div class="img-ph" style="aspect-ratio:16/9;margin-top:.35rem""><a href="https://ceciliaolliveira.com" rel="noopener noreferrer" target="_blank"><img src="oi-sitececilia.png"></a></div>
+    </div>
+
+    <div class="card other-card">
+      <h3 style="font-family:var(--sans);font-size:1.05rem;font-weight:700;letter-spacing:-.02em">Apresentação - InternetLab </h3>
+      <p style="font-size:.83rem;color:var(--muted);line-height:1.7;font-weight:300;flex:1">Criação da apresentação institucional de captação de recursos e parcerias para o IX Congresso Direitos Fundamentais e Processo Penal na Era Digital, realizado pelo InternetLab. O trabalho envolveu organização estratégica das informações e desenvolvimento visual alinhado à identidade do evento, com foco em clareza, impacto institucional e comunicação com potenciais apoiadores.</p>
+      <div class="img-ph" style="aspect-ratio:16/9;margin-top:.35rem"><a href="#" rel="noopener noreferrer" target="_blank"><img src="oi-apresentacaoil.png"></a></div>
+    </div>
+
+    <div class="card other-card">
+      <h3 style="font-family:var(--sans);font-size:1.05rem;font-weight:700;letter-spacing:-.02em">Diagramação - Amazon Underworld</h3>
+      <p style="font-size:.83rem;color:var(--muted);line-height:1.7;font-weight:300;flex:1">Adaptação e diagramação da edição em português da publicação “Economias criminosas na maior floresta tropical do mundo”, produzida no âmbito do projeto Amazon Underworld. O trabalho consistiu na aplicação e adequação do conteúdo traduzido ao projeto gráfico já estabelecido na versão original em inglês do relatório, garantindo a consistência visual do produto.</p>
+      <div class="img-ph" style="aspect-ratio:16/9;margin-top:.35rem"><a href="https://amazonunderworld.org/wp-content/uploads/2025/05/Amazon-underworld-PT-BR.pdf" rel="noopener noreferrer" target="_blank"><img src="oi-diagramacaoau.png"></a></div>
+    </div>
+
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ─── CONTATO ─── -->
+<section id="contato">
+  <div class="contact-outer">
+    <div class="card contact-card">
+      <h2 class="contact-title">
+        Vamos <em class="col-p">trabalhar</em> juntas?
+        
+        
+      </h2>
+      <p class="contact-desc">
+        Disponível para oportunidades em comunicação estratégica, gestão de redes e produção de eventos no Brasil e em Portugal.
+        
+        
+      </p>
+      <div class="contact-links">
+        <a href="mailto:isisrf88gmail.com" class="clink"><span class="clink-ico ico-e">@</span><div><span class="clink-lbl">Email</span><span class="clink-val">isisrf88@gmail.com</span></div></a>
+        <a href="https://linkedin.com/in/isisrf" class="clink" target="_blank"><span class="clink-ico ico-l">in</span><div><span class="clink-lbl">LinkedIn</span><span class="clink-val">linkedin.com/in/isisrf</span></div></a>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:1rem">
+      <div class="avail-card">
+        <p class="avail-title">Disponibilidade</p>
+        <div class="avail-items">
+          <div class="avail-item"><span class="avail-dot" style="background:var(--teal)"></span><span><strong style="color:var(--teal)">Remoto</strong> para o Brasil ou qualquer país da União Europeia</span></div>
+          <div class="avail-item"><span class="avail-dot" style="background:var(--purple)"></span><span><strong style="color:var(--purple)">Remoto ou híbrido</strong> em Lisboa, Portugal</span></div>
+          <div class="avail-item"><span class="avail-dot" style="background:var(--pink)"></span><span>Baseada em <strong style="color:var(--pink)">Lisboa</strong> — disponível para deslocamentos pontuais para eventos</span></div>
+        </div>
+      </div>
+      <div class="status-card">
+        <p class="status-lbl">Status atual</p>
+        <p class="status-txt">Aberta a novas oportunidades — tempo integral, tempo parcial ou projetos de longa duração.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bar">
+    Última atualização: maio de 2026
+    
+    
+  </div>
+</section>
+
+</div><!-- /page-main -->
+
+<!-- ══════════════════════════════════
+     PAGE: CV COMPLETO
+══════════════════════════════════ -->
+<div id="page-cv" class="page">
+  <div class="cv-page-inner">
+    <button class="cv-page-back" onclick="showPage('main')">← Voltar ao portfólio</button>
+
+    <h1 class="cv-page-title">Isis Reis</h1>
+    <p class="cv-page-sub">Comunicação estratégica · Dados abertos · Conhecimento livre · Lisboa</p>
+
+    <div class="cv-section">
+      <p class="cv-section-lbl">Experiência</p>
+
+      <div class="cv-row">
+        <div class="cv-row-date">2021 — presente</div>
+        <div class="cv-row-body">
+          <p class="cv-row-title">Comunicação e redes sociais</p>
+          <p class="cv-row-org">Open Knowledge Brasil · Escola de Dados</p>
+          <p class="cv-row-desc">Gestão estratégica e criação de conteúdo. Planejamento editorial, design de peças, agendamento e análise de métricas em Instagram, LinkedIn, Bluesky, Mastodon e YouTube.</p>
+        </div>
+      </div>
+
+      <div class="cv-row">
+        <div class="cv-row-date">2023 — presente</div>
+        <div class="cv-row-body">
+          <p class="cv-row-title">Gestão de comunicação</p>
+          <p class="cv-row-org">Wiki Editoras Lx · Lisboa</p>
+          <p class="cv-row-desc">Gestão de redes (Instagram, Facebook, LinkedIn) e newsletter (Sendy) do grupo de editoras da Wikipédia em Lisboa.</p>
+        </div>
+      </div>
+
+      <div class="cv-row">
+        <div class="cv-row-date">2022 — presente</div>
+        <div class="cv-row-body">
+          <p class="cv-row-title">Comunicação de eventos</p>
+          <p class="cv-row-org">Coda.Br · Coda Amazônia · Cerveja com Dados · Festival de Tecnologia Popular de Setúbal</p>
+          <p class="cv-row-desc">Criação de peças gráficas, divulgação em redes e apoio à produção de eventos de jornalismo de dados e tecnologia no Brasil e em Portugal.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <p class="cv-section-lbl">Formação</p>
+      <div class="cv-row">
+        <div class="cv-row-date">Adicionar ano</div>
+        <div class="cv-row-body">
+          <p class="cv-row-title">Nome do curso / grau</p>
+          <p class="cv-row-org">Instituição</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <p class="cv-section-lbl">Idiomas</p>
+      <div class="cv-skills-wrap">
+        <span class="cv-skill-tag">Português — nativo</span>
+        <span class="cv-skill-tag">Inglês — adicionar nível</span>
+        <span class="cv-skill-tag">+ adicionar idioma</span>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <p class="cv-section-lbl">Competências</p>
+      <div class="cv-skills-wrap">
+        <span class="cv-skill-tag">Estratégia de comunicação</span>
+        <span class="cv-skill-tag">Gestão de redes sociais</span>
+        <span class="cv-skill-tag">Criação de conteúdo</span>
+        <span class="cv-skill-tag">Design gráfico</span>
+        <span class="cv-skill-tag">Mailchimp · Sendy</span>
+        <span class="cv-skill-tag">Canva · Figma</span>
+        <span class="cv-skill-tag">Produção de eventos</span>
+        <span class="cv-skill-tag">Dados abertos</span>
+        <span class="cv-skill-tag">WordPress · HTML</span>
+      </div>
+    </div>
+
+    <p class="cv-note">Esta página é de acesso restrito — compartilhe o link apenas com quem quiser.</p>
+  </div>
+</div><!-- /page-cv -->
+
+<script>
+
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleGallery(btn) {
+  const panel = btn.nextElementSibling;
+  const open = panel.classList.toggle('open');
+  btn.classList.toggle('open', open);
+  const spans = btn.querySelectorAll('span');
+  const labels = { br: ['Ver mais peças','Ver menos','Ver mais edições','Ver mais'], pt: ['Ver mais peças','Ver menos','Ver mais edições','Ver mais'], en: ['See more','See less'] };
+  spans.forEach(s => {
+    if (open) s.textContent = s.dataset.li === 'en' ? 'See less' : 'Ver menos';
+  });
+  if (!open) {
+    
+  }
+}
+
+function triggerUpload(el) { el.querySelector('input[type="file"]').click(); }
+
+function previewImgCircle(input) {
+  if (!input.files[0]) return;
+  const r = new FileReader();
+  r.onload = e => {
+    const circle = input.closest('.proj-logo');
+    let img = circle.querySelector('img');
+    if (!img) { img = document.createElement('img'); circle.appendChild(img); }
+    img.src = e.target.result;
+    circle.querySelectorAll('svg').forEach(el => el.style.display = 'none');
+    const fi = circle.querySelector('input[type="file"]');
+    if (fi) fi.style.pointerEvents = 'none';
+  };
+  r.readAsDataURL(input.files[0]);
+}
+
+function previewImg(input) {
+  if (!input.files[0]) return;
+  const r = new FileReader();
+  r.onload = e => {
+    const ph = input.closest('.img-ph');
+    let img = ph.querySelector('img');
+    if (!img) {
+      img = document.createElement('img');
+      img.addEventListener('click', ev => { ev.stopPropagation(); openLightbox(img.src); });
+      ph.appendChild(img);
+    }
+    img.src = e.target.result;
+    ph.querySelectorAll('svg, span').forEach(el => el.style.display = 'none');
+    const fi = ph.querySelector('input[type="file"]');
+    if (fi) fi.style.pointerEvents = 'none';
+  };
+  r.readAsDataURL(input.files[0]);
+}
+
+function openLightbox(src) {
+  document.getElementById('lb-img').src = src;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(e) {
+  if (!e || e.target === document.getElementById('lightbox') || e.currentTarget.classList.contains('lb-close')) {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; }});
+
+</script>
+</body>
+</html>
